@@ -1,4 +1,6 @@
-# Requirements
+# FastAPI Python framework Starter boilerplate
+
+## Requirements
 
 1. You should install python at least over v3.8 to install FastAPI framework
 
@@ -25,7 +27,7 @@ If pip is not installed, download `get-pip.py` from pip's official site and run:
 python get-pip.py
 ```
 
-# Installation of this project
+## Installation of this project
 
 1. Clone this repository using this command
 
