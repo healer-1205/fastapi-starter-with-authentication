@@ -32,8 +32,8 @@ A robust, production-ready FastAPI starter project featuring **user registration
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/yourusername/fastapi-email-auth-starter.git
-cd fastapi-email-auth-starter
+git clone https://github.com/healer-1205/fastapi-starter-with-authentication.git
+cd fastapi-starter-with-authentication
 ```
 
 ### 2. Create & Configure `.env`
@@ -51,19 +51,13 @@ cp .env.example .env
 pip install -r requirements.txt
 ```
 
-### 4. Run Database Migrations
-
-```bash
-alembic upgrade head
-```
-
-### 5. Start the App
+### 4. Start the App
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
-### 6. API Docs
+### 5. API Docs
 
 Visit [http://localhost:8000/docs](http://localhost:8000/docs) for interactive documentation.
 
