@@ -51,7 +51,6 @@ async def delete_user(user_id: str, db: Session = Depends(get_db)):
     """
     Delete a user by ID
     """
-    print(f"Deleting user with ID: {user_id}")
     await UserController.delete_user(user_id, db)
     return {"detail": "User deleted"}
 
