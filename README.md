@@ -36,7 +36,19 @@ git clone https://github.com/healer-1205/fastapi-starter-with-authentication.git
 cd fastapi-starter-with-authentication
 ```
 
-### 2. Create & Configure `.env`
+### 2. Create .venv
+
+```bash
+python -m venv .venv
+```
+
+### 3. Activate virtual environment
+
+```bash
+.venv\Scripts\activate
+```
+
+### 4. Create & Configure `.env`
 
 Copy `.env.example` to `.env` and fill in your environment variables:
 
@@ -45,19 +57,19 @@ cp .env.example .env
 # Edit .env with your editor
 ```
 
-### 3. Install Dependencies
+### 5. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Start the App
+### 6. Start the App
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
-### 5. API Docs
+### 7. API Docs
 
 Visit [http://localhost:8000/docs](http://localhost:8000/docs) for interactive documentation.
 
