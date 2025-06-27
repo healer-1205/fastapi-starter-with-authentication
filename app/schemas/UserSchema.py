@@ -7,12 +7,9 @@ class UserSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
     id: Optional[str] = None
-    username: str | None = None
     email: EmailStr | None = None
     password: Optional[str] = None
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
-    role: Optional[str] = None
+    fullName: Optional[str] = None
     avatar: Optional[str] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
@@ -23,16 +20,14 @@ class UserReadSchema(BaseModel):
 
     id: str
     email: EmailStr
-    username: Optional[str] = None
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
-    role: Optional[str] = None
+    fullName: Optional[str] = None
     avatar: Optional[str] = None
     created_at: datetime
     updated_at: datetime
 
 
 class UserCreate(UserSchema):
+    fullName: str
     email: EmailStr
     password: str
 
@@ -40,8 +35,7 @@ class UserCreate(UserSchema):
 class UserUpdate(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
+    fullName: Optional[str] = None
     password: Optional[str] = None
 
 class UserLoginSchema(BaseModel):

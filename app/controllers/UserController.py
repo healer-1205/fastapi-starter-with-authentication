@@ -16,19 +16,16 @@ async def create_user(user, db):
     # Check if user already exists
     if db.query(UserModel).filter(UserModel.email == user.email).first():
         raise HTTPException(status_code=400, detail="Email already registered")
-    if db.query(UserModel).filter(UserModel.username == user.username).first():
-        raise HTTPException(status_code=400, detail="Username already taken")
+    # if db.query(UserModel).filter(UserModel.username == user.username).first():
+    #     raise HTTPException(status_code=400, detail="Username already taken")
 
     hashed_password = pwd_context.hash(user.password)
 
     db_user = UserModel(
         id=str(uuid.uuid4()),
-        username=user.username,
+        fullName=user.fullName,
         email=user.email,
         password=hashed_password,
-        firstName=user.firstName,
-        lastName=user.lastName,
-        role=user.role,
         avatar=user.avatar,
     )
     db.add(db_user)
@@ -94,4 +91,4 @@ async def login(user, db: Session):
     secret_key = os.getenv("NABL_ACCESS_TOKEN_SECRET_KEY")
 
     token = jwt.encode(payload, secret_key, algorithm="HS256")
-    return {"nablJwtAccess": token, "userId": userId, "email": email}
+    return {"accessToken": token, "userId": userId, "email": email}
