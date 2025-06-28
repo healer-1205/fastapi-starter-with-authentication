@@ -1,5 +1,6 @@
 annotated-types==0.7.0
 anyio==4.9.0
+Authlib==1.6.0
 bcrypt==4.0.1
 certifi==2025.6.15
 cffi==1.17.1

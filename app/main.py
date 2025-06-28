@@ -1,8 +1,10 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import UserRouter
+from app.routers import UserRouter, OAuthRouter
 from app.config import Base, engine
 from dotenv import load_dotenv
+from starlette.middleware.sessions import SessionMiddleware
 
 # Load environment variables from .env file
 load_dotenv()
@@ -11,6 +13,9 @@ load_dotenv()
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+# Session middleware (REQUIRED for OAuth)
+app.add_middleware(SessionMiddleware, secret_key=os.getenv("ACCESS_TOKEN_SECRET_KEY"))
 
 # CORS middleware
 app.add_middleware(
@@ -28,3 +33,4 @@ async def root():
 
 
 app.include_router(UserRouter.router)
+app.include_router(OAuthRouter.router)

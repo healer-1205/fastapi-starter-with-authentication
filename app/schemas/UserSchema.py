@@ -11,6 +11,10 @@ class UserSchema(BaseModel):
     password: Optional[str] = None
     fullName: Optional[str] = None
     avatar: Optional[str] = None
+    googleId: Optional[str] = None
+    appleId: Optional[str] = None
+    facebookId: Optional[str] = None
+    xId: Optional[str] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
@@ -22,6 +26,10 @@ class UserReadSchema(BaseModel):
     email: EmailStr
     fullName: Optional[str] = None
     avatar: Optional[str] = None
+    googleId: Optional[str] = None
+    appleId: Optional[str] = None
+    facebookId: Optional[str] = None
+    xId: Optional[str] = None
     created_at: datetime
     updated_at: datetime
 
@@ -37,9 +45,24 @@ class UserUpdate(BaseModel):
 
     fullName: Optional[str] = None
     password: Optional[str] = None
+    avatar: Optional[str] = None
+
 
 class UserLoginSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
-    
+
     email: EmailStr
     password: str
+
+
+# New schema for OAuth user creation
+class OAuthUserCreate(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    email: EmailStr
+    fullName: str
+    avatar: Optional[str] = None
+    googleId: Optional[str] = None
+    appleId: Optional[str] = None
+    facebookId: Optional[str] = None
+    xId: Optional[str] = None

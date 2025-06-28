@@ -14,8 +14,15 @@ class UserModel(Base):
     )
     fullName = Column(String(50), index=True)
     email = Column(String(120), unique=True, nullable=False, index=True)
-    password = Column(String(128), nullable=False)
+    password = Column(String(128), nullable=True)  # Made nullable for OAuth users
     avatar = Column(String(255))
+
+    # OAuth Provider IDs
+    googleId = Column(String(255), unique=True, nullable=True, index=True)
+    appleId = Column(String(255), unique=True, nullable=True, index=True)
+    facebookId = Column(String(255), unique=True, nullable=True, index=True)
+    xId = Column(String(255), unique=True, nullable=True, index=True)
+
     created_at = Column(DateTime, default=datetime.datetime.now(datetime.timezone.utc))
     updated_at = Column(
         DateTime,
