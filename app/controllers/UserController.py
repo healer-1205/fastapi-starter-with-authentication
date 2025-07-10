@@ -1,7 +1,6 @@
 import uuid
-from fastapi import HTTPException, Depends
+from fastapi import HTTPException
 from sqlalchemy.orm import Session
-from app.dependencies import get_db
 from app.models.UserModel import UserModel
 import jwt
 import datetime

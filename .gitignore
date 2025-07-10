@@ -1,41 +1,10 @@
- # Python virtual environments
-venv/
-fastapi_env/
-*.venv/
-
-# Python cache files
+# Python-generated files
 __pycache__/
-*.py[cod]
-*$py.class
-
-# FastAPI/Uvicorn logs
-*.log
-
-# Environment variables and sensitive files
-.env
-*.env
-*.secret
-
-# Dependency files (if you want to regenerate requirements.txt)
-# requirements.txt  # Uncomment if you want to exclude it
-
-# OS-specific files
-.DS_Store  # macOS
-Thumbs.db  # Windows
-Desktop.ini  # Windows
-
-# Editor/IDE files
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# Temporary files
-*.bak
-*.swp
-*.tmp
-
-# Build artifacts
-dist/
+*.py[oc]
 build/
-*.egg-info/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv

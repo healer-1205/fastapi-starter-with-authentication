@@ -10,6 +10,8 @@ from app.middleware.VerifyToken import verify_token
 router = APIRouter(prefix="/api/users", tags=["users"])
 
 
+# static routes
+
 @router.post("/", response_model=UserReadSchema)
 async def create_user(user: UserCreate, db: Session = Depends(get_db)):
     """
@@ -25,6 +27,19 @@ async def list_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_
     """
     return await UserController.list_users(skip, limit, db)
 
+
+@router.post("/login")
+async def login(user: UserLoginSchema, db: Session = Depends(get_db)):
+    """
+    Authenticate user and return JWT token
+    """
+    authData = await UserController.login(user, db)
+    if not authData:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+    return authData
+
+
+# dynamic routes
 
 @router.get(
     "/{user_id}", response_model=UserSchema, dependencies=[Depends(verify_token)]
@@ -53,14 +68,3 @@ async def delete_user(user_id: str, db: Session = Depends(get_db)):
     """
     await UserController.delete_user(user_id, db)
     return {"detail": "User deleted"}
-
-
-@router.post("/login")
-async def login(user: UserLoginSchema, db: Session = Depends(get_db)):
-    """
-    Authenticate user and return JWT token
-    """
-    authData = await UserController.login(user, db)
-    if not authData:
-        raise HTTPException(status_code=401, detail="Invalid credentials")
-    return authData
