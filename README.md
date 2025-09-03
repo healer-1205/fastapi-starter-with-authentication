@@ -47,19 +47,19 @@ pip install uv
 ### 3. Activate venv
 
 ```bash
-python -m venv venv
+python -m venv .venv
 # in command prompt
-venv\Scripts\activate
+.venv\Scripts\activate
 ```
 
 
-### 3. Install Dependencies from pyproject.toml
+### 4. Install Dependencies from pyproject.toml
 
 ```bash
 uv sync
 ```
 
-### 4. Create & Configure `.env`
+### 5. Create & Configure `.env`
 
 Copy `.env.example` to `.env` and fill in your environment variables:
 
@@ -68,13 +68,13 @@ cp .env.example .env
 # Edit .env with your editor
 ```
 
-### 5. Start the App
+### 6. Start the App
 
 ```bash
 uv run uvicorn app.main:app --reload --port 8001
 ```
 
-### 6. API Docs
+### 7. API Docs
 
 Visit [http://localhost:8000/docs](http://localhost:8000/docs) for interactive documentation.
 
@@ -210,5 +210,6 @@ Pull requests and issues are welcome! Feel free to open a discussion or submit a
 ---
 
 **Kickstart your next FastAPI project with robust email authentication and modern Python tooling!**
+
 
 
