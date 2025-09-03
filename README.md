@@ -44,6 +44,15 @@ cd fastapi-starter-with-authentication
 pip install uv
 ```
 
+### 3. Activate venv
+
+```bash
+python -m venv venv
+# in command prompt
+venv\Scripts\activate
+```
+
+
 ### 3. Install Dependencies from pyproject.toml
 
 ```bash
@@ -201,4 +210,5 @@ Pull requests and issues are welcome! Feel free to open a discussion or submit a
 ---
 
 **Kickstart your next FastAPI project with robust email authentication and modern Python tooling!**
+
 
