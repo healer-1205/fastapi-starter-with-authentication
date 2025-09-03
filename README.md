@@ -44,10 +44,10 @@ cd fastapi-starter-with-authentication
 pip install uv
 ```
 
-### 3. Install Dependencies
+### 3. Install Dependencies from pyproject.toml
 
 ```bash
-uv pip sync
+uv sync
 ```
 
 ### 4. Create & Configure `.env`
@@ -201,3 +201,4 @@ Pull requests and issues are welcome! Feel free to open a discussion or submit a
 ---
 
 **Kickstart your next FastAPI project with robust email authentication and modern Python tooling!**
+
